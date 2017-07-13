@@ -10,4 +10,12 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/new', (req, res, next) => {
+  queries.addBook(req.body).then(book=> {
+    console.log('posting in the router');
+    console.log(req.body);
+    res.json(book)
+  })
+})
+
 module.exports = router
